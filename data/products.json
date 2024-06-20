@@ -1,0 +1,46 @@
+[
+  {
+    "id": 1,
+    "category": "cargadores",
+    "model": "TipoC-balnco",
+    "image": "https://tiendasishop.com/media/catalog/product/c/h/charger.jpg?optimize=high&bg-color=255,255,255&fit=bounds&height=700&width=700&canvas=700:700&dpr=1%201x",
+    "price": 100
+  },
+  {
+    "id": 2,
+    "category": "audifonos",
+    "model": "Beats Studio",
+    "image": "https://promart.vteximg.com.br/arquivos/ids/7039128-1000-1000/image-aa1d7107ab0146479234ffc7f21ec38a.jpg?v=638201442134370000",
+    "price": 1300
+  },
+  {
+    "id": 3,
+    "category": "audifonos",
+    "model": "AirPods Magsafe",
+    "image": "https://tiendasishop.com/media/catalog/product/m/t/mtjv3.jpg?optimize=high&bg-color=255,255,255&fit=bounds&height=700&width=700&canvas=700:700&dpr=1%201x",
+    "price": 900
+  },
+  {
+    "id": 4,
+    "category": "cables",
+    "model": "Cable USB-C",
+    "image": "https://tiendasishop.com/media/catalog/product/m/m/mm0a3.jpeg?optimize=high&bg-color=255,255,255&fit=bounds&height=700&width=700&canvas=700:700",
+    "price": 190
+  },
+
+  {"id": 5,
+    "category": "cargadores",
+    "model": "Magsade",
+    "image": "https://tiendasishop.com/media/catalog/product/8/4/840390303332_1.jpg?optimize=high&bg-color=255,255,255&fit=bounds&height=&width=&canvas=:",
+    "price": 600
+  },
+  {
+    "id": 6,
+    "category": "protectores",
+    "model": "protector de pantalla",
+    "image": "https://tiendasishop.com/media/catalog/product/2/0/200111787_zagg_invisibleshield_glass_elite_apple_iphone_15_pro_max_screen_frontright_device__81385_1.png?optimize=high&bg-color=255,255,255&fit=bounds&height=700&width=700&canvas=700:700&format=jpeg&dpr=1%201x",
+    "price": 50
+  }
+  
+  
+]
