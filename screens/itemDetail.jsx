@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
     textTransform: 'capitalize',
   },
   quantityContainer: {
-    flexDirection: 'row',
+    flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'space-between',
     marginBottom: 16,

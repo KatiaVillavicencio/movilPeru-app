@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.gray[300],
     borderRadius: 8,
     borderWidth: 1,
-    flexDirection: 'row',
+    flexDirection: 'column',
     gap: 8,
     paddingHorizontal: 16,
     paddingVertical: 8,

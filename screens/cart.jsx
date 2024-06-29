@@ -56,7 +56,7 @@ export const styles = StyleSheet.create({
     padding: 16,
   },
   total: {
-    flexDirection: 'row',
+    flexDirection: 'column',
     justifyContent: 'space-between',
     padding: 16,
   },

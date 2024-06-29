@@ -47,7 +47,7 @@ export const Categories = () => {
 
 const styles = StyleSheet.create({
   categoriesLoading: {
-    flexDirection: 'colum',
+    flexDirection: 'column',
     gap: 8,
     alignItems: 'center',
   },

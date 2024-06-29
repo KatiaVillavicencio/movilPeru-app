@@ -26,7 +26,7 @@ export const CartItem = ({
 
 const styles = StyleSheet.create({
   cartItem: {
-    flexDirection: 'row',
+    flexDirection: 'column',
     alignItems: 'center',
     gap: 16,
   },
