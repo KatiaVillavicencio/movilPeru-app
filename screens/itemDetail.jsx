@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import {
   Image,
   Pressable,
@@ -5,39 +6,38 @@ import {
   StyleSheet,
   Text,
   View,
-} from 'react-native'
-import { SafeAreaView } from 'react-native-safe-area-context'
-import products from '../data/products.json'
-import { theme } from '../configs/theme'
-import { useEffect, useState } from 'react'
-import { useNavigation, useRoute } from '@react-navigation/native'
-import { formatPrice } from '../utils/price'
-import { Button } from '../components/button'
-import { useDispatch } from 'react-redux'
-import { addItem } from '../features/cart/cartSlice'
+} from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import products from '../data/products.json';
+import { theme } from '../configs/theme';
+import { useEffect } from 'react';
+import { useNavigation, useRoute } from '@react-navigation/native';
+import { formatPrice } from '../utils/price';
+import { Button } from '../components/button';
+import { useDispatch } from 'react-redux';
+import { addItem } from '../features/cart/cartSlice';
 
 export const ItemDetail = () => {
-  const { params } = useRoute()
-  const { goBack, setOptions } = useNavigation()
-  const dispatch = useDispatch()
-  const [selectedSize, setSelectedSize] = useState()
+  const { params } = useRoute();
+  const { goBack, setOptions } = useNavigation();
+  const dispatch = useDispatch();
+  const [quantity, setQuantity] = useState(1); // Estado para la cantidad de productos
 
-  const item = products.find(product => product.id === params.productId)
-  const { brand, image, model, price } = item
-  const SIZES = [0]
-
-  const handleSize = size => {
-    setSelectedSize(size)
-  }
+  const item = products.find(product => product.id === params.productId);
+  const { brand, image, model, price } = item;
 
   const handleAddToCart = () => {
-    dispatch(addItem({ ...item, size: selectedSize }))
-    goBack()
-  }
+    dispatch(addItem({ ...item, quantity })); // Pasar cantidad al añadir al carrito
+    goBack();
+  };
 
   useEffect(() => {
-    setOptions({ title: model })
-  }, [params.brand])
+    setOptions({ title: model });
+  }, [params.brand]);
+
+  const increaseQuantity = () => {
+    setQuantity(quantity + 1); // Función para aumentar la cantidad
+  };
 
   return (
     <SafeAreaView style={styles.itemDetail}>
@@ -54,34 +54,17 @@ export const ItemDetail = () => {
             <Text style={styles.text}>{model}</Text>
             <Text style={styles.text}>{formatPrice(price)}</Text>
           </View>
-          <Text style={styles.titleSection}>Size</Text>
-          <View style={styles.sizes}>
-            {SIZES.map(size => {
-              const isSelected = selectedSize === size
-
-              return (
-                <Pressable
-                  key={size}
-                  style={isSelected ? styles.selectedSize : styles.size}
-                  onPress={() => handleSize(size)}
-                >
-                  <Text
-                    style={
-                      isSelected ? styles.selectedSizeText : styles.sizeText
-                    }
-                  >
-                    {size}
-                  </Text>
-                </Pressable>
-              )
-            })}
+          <Text style={styles.titleSection}>Cantidad</Text>
+          <View style={styles.quantityContainer}>
+            <Button onPress={increaseQuantity}>+</Button>
+            <Text style={styles.quantity}>{quantity}</Text>
           </View>
           <Button onPress={handleAddToCart}>Agregar al carrito</Button>
         </View>
       </ScrollView>
     </SafeAreaView>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   itemDetail: {
@@ -100,40 +83,19 @@ const styles = StyleSheet.create({
     gap: 16,
   },
   titleSection: {
-    fontFamily: 'Unbounded-Bold',
+    fontFamily: 'Rubik-Bold',
   },
   text: {
     textTransform: 'capitalize',
   },
-  sizes: {
+  quantityContainer: {
     flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 16,
-  },
-  size: {
-    borderWidth: 2,
-    borderColor: theme.colors.gray[500],
-    height: 40,
-    width: 40,
-    justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 40,
+    justifyContent: 'space-between',
+    marginBottom: 16,
   },
-  selectedSize: {
-    borderColor: theme.colors.primary[600],
-    borderWidth: 2,
-    height: 40,
-    width: 40,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 40,
-  },
-  sizeText: {
-    color: theme.colors.gray[500],
+  quantity: {
+    fontSize: 20,
     fontWeight: 'bold',
   },
-  selectedSizeText: {
-    color: theme.colors.primary[600],
-    fontWeight: 'bold',
-  },
-})
+});

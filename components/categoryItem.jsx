@@ -10,14 +10,14 @@ export const CategoryItem = ({ name, onPress }) => (
 const styles = StyleSheet.create({
   category: {
     alignItems: 'center',
-    backgroundColor: theme.colors.black,
-    borderRadius: 32,
+    backgroundColor: '#D1C4E9',
+    borderRadius: 8,
     height: 64,
     justifyContent: 'center',
     width: 64,
   },
   name: {
-    color: theme.colors.white,
+    color: '#4A148C',
     fontSize: 12,
     fontWeight: 'bold',
     textAlign: 'center',

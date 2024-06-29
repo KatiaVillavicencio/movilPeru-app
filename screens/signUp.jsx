@@ -77,7 +77,7 @@ export const SignUp = () => {
         <Button onPress={handleSignUp}>Registrarse</Button>
       </View>
       <View style={styles.section}>
-        <Text>Ya tienes cuenta?</Text>
+        <Text>¿Ya tienes una cuenta?</Text>
         <Button onPress={goToLogin}>Ingresar</Button>
       </View>
     </View>

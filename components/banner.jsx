@@ -22,8 +22,11 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   text: {
-    color: 'purple',
-    fontFamily: 'Rubik-Bold',
-    fontSize: 24,
+    color: 'white',
+    fontFamily: 'Rubik-Regular',
+    fontSize: 18,
+    textShadowColor: 'black',
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 2,
   },
 })
