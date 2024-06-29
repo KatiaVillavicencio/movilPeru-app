@@ -35,7 +35,7 @@ export const Categories = () => {
         <FlatList
           contentContainerStyle={styles.list}
           data={data}
-          horizontal
+          vertical
           renderItem={({ item }) => (
             <CategoryItem name={item} onPress={() => handlePress(item)} />
           )}
@@ -47,7 +47,7 @@ export const Categories = () => {
 
 const styles = StyleSheet.create({
   categoriesLoading: {
-    flexDirection: 'column',
+    flexDirection: 'row',
     gap: 8,
     alignItems: 'center',
   },
@@ -56,6 +56,7 @@ const styles = StyleSheet.create({
   },
   list: {
     gap: 12,
+    alignItems: 'center',
   },
   text: {
     fontFamily: 'Rubik-Bold',

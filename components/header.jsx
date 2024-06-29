@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   text: {
-    fontFamily: 'Unbounded-Bold',
+    fontFamily: 'Rubik-Bold',
     fontSize: 18,
   },
 })

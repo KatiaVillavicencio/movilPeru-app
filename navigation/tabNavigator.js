@@ -14,7 +14,7 @@ export const TabNavigator = () => (
   <Navigator
     screenOptions={{
       headerShown: false,
-      tabBarActiveTintColor: '#FC3400',
+      tabBarActiveTintColor: 'purple',
       tabBarInactiveTintColor: '#9ca3af',
     }}
   >

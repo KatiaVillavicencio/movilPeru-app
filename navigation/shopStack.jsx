@@ -12,7 +12,7 @@ const { Navigator: StackNavigator, Screen: StackScreen } =
 export const ShopStack = () => (
   <StackNavigator
     screenOptions={{
-      headerTitleStyle: { fontFamily: 'Unbounded-Bold' },
+      headerTitleStyle: { fontFamily: 'Rubik-Bold' },
       headerShadowVisible: false,
       headerRight: () => <Logout />,
     }}

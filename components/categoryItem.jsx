@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     height: 64,
     justifyContent: 'center',
-    width: 64,
+    width: 200,
   },
   name: {
     color: '#4A148C',
