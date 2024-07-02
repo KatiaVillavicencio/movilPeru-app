@@ -1,29 +1,39 @@
-import { FlatList, StyleSheet, Text, View } from 'react-native'
-import cartData from '../data/cart.json'
-import { CartItem } from '../components/cartItem'
-import { formatPrice } from '../utils/price'
-import { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { removeItem } from '../features/cart/cartSlice'
-import { usePostOrderMutation } from '../services/shopService'
-import { Button } from '../components/button'
+import { FlatList, StyleSheet, Text, View } from 'react-native';
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { removeItem } from '../features/cart/cartSlice';
+import { usePostOrderMutation } from '../services/shopService';
+import { CartItem } from '../components/cartItem';
+import { formatPrice } from '../utils/price';
+import { Button } from '../components/button';
 
 export const Cart = () => {
-  const dispatch = useDispatch()
-  const user = useSelector(state => state.cart.value.user)
-  const items = useSelector(state => state.cart.value.items)
-  const total = useSelector(state => state.cart.value.total)
-  const [triggerPost, result] = usePostOrderMutation()
+  const dispatch = useDispatch();
+  const user = useSelector(state => state.cart.value.user);
+  const items = useSelector(state => state.cart.value.items);
+  const total = useSelector(state => state.cart.value.total);
+  const [triggerPost, result] = usePostOrderMutation();
+  const [confirmationMessage, setConfirmationMessage] = useState('');
 
-  const cartIsEmpty = items.length === 0
+  const cartIsEmpty = items.length === 0;
 
   const handleDelete = item => {
-    dispatch(removeItem(item))
-  }
+    dispatch(removeItem(item));
+    setConfirmationMessage(''); // Limpiar el mensaje de confirmación
+  };
 
-  const confirmOrder = () => {
-    triggerPost({ items, total, user })
-  }
+  const confirmOrder = async () => {
+    try {
+      await triggerPost({ items, total, user }).unwrap();
+      setConfirmationMessage('¡Pedido confirmado!');
+    } catch (error) {
+      setConfirmationMessage('Error al confirmar el pedido. Inténtelo de nuevo.');
+    }
+  };
+
+  useEffect(() => {
+    setConfirmationMessage(''); // Limpiar el mensaje de confirmación cuando se actualiza el carrito
+  }, [items]);
 
   return (
     <View style={styles.cart}>
@@ -44,11 +54,12 @@ export const Cart = () => {
           Confirmar pedido
         </Button>
       )}
+      {confirmationMessage ? <Text style={styles.confirmation}>{confirmationMessage}</Text> : null}
     </View>
-  )
-}
+  );
+};
 
-export const styles = StyleSheet.create({
+const styles = StyleSheet.create({
   cart: {
     minHeight: '100%',
     height: '100%',
@@ -63,4 +74,10 @@ export const styles = StyleSheet.create({
   totalText: {
     fontFamily: 'Rubik-Bold',
   },
-})
+  confirmation: {
+    marginTop: 16,
+    fontSize: 16,
+    color: 'green',
+    textAlign: 'center',
+  },
+});
