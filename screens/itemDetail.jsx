@@ -18,7 +18,7 @@ export const ItemDetail = () => {
   const { params } = useRoute();
   const { goBack, setOptions } = useNavigation();
   const dispatch = useDispatch();
-  const [quantity, setQuantity] = useState(1); // Estado para la cantidad de productos
+  const [quantity, setQuantity] = useState(1); // Cantidad de productos
 
   const item = products.find(product => product.id === params.productId);
   const { brand, image, model, price } = item;
@@ -51,7 +51,7 @@ export const ItemDetail = () => {
             style={styles.image}
             resizeMode='contain'
           />
-          <Text style={styles.titleSection}>Details</Text>
+          <Text style={styles.titleSection}>Detalles</Text>
           <View style={styles.info}>
             <Text style={styles.text}>{brand}</Text>
             <Text style={styles.text}>{model}</Text>
@@ -77,14 +77,14 @@ const styles = StyleSheet.create({
     paddingBottom: 5,
   },
   container: {
-    gap: 20,
+    gap: 10,
   },
   image: {
     width: '100%',
     height: 300,
   },
   info: {
-    gap: 16,
+    gap: 4,
   },
   titleSection: {
     fontFamily: 'Rubik-Bold',
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginBottom: 0,
+    marginBottom: 10,
   },
   quantityButton: {
     paddingHorizontal: 10,

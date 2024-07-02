@@ -61,6 +61,6 @@ export const styles = StyleSheet.create({
     padding: 16,
   },
   totalText: {
-    fontFamily: 'Unbounded-Bold',
+    fontFamily: 'Rubik-Bold',
   },
 })
