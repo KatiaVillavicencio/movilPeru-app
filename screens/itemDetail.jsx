@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Image,
-  Pressable,
   ScrollView,
   StyleSheet,
   Text,
@@ -9,8 +8,6 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import products from '../data/products.json';
-import { theme } from '../configs/theme';
-import { useEffect } from 'react';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { formatPrice } from '../utils/price';
 import { Button } from '../components/button';
@@ -33,10 +30,16 @@ export const ItemDetail = () => {
 
   useEffect(() => {
     setOptions({ title: model });
-  }, [params.brand]);
+  }, [setOptions, model]);
 
   const increaseQuantity = () => {
     setQuantity(quantity + 1); // Función para aumentar la cantidad
+  };
+
+  const decreaseQuantity = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1); // Función para disminuir la cantidad
+    }
   };
 
   return (
@@ -56,8 +59,9 @@ export const ItemDetail = () => {
           </View>
           <Text style={styles.titleSection}>Cantidad</Text>
           <View style={styles.quantityContainer}>
-            <Button onPress={increaseQuantity}>+</Button>
+            <Button onPress={decreaseQuantity} style={styles.quantityButton}>-</Button>
             <Text style={styles.quantity}>{quantity}</Text>
+            <Button onPress={increaseQuantity} style={styles.quantityButton}>+</Button>
           </View>
           <Button onPress={handleAddToCart}>Agregar al carrito</Button>
         </View>
@@ -70,14 +74,14 @@ const styles = StyleSheet.create({
   itemDetail: {
     paddingTop: 0,
     paddingHorizontal: 16,
-    paddingBottom: 16,
+    paddingBottom: 5,
   },
   container: {
-    gap: 32,
+    gap: 20,
   },
   image: {
     width: '100%',
-    height: 320,
+    height: 300,
   },
   info: {
     gap: 16,
@@ -89,10 +93,16 @@ const styles = StyleSheet.create({
     textTransform: 'capitalize',
   },
   quantityContainer: {
-    flexDirection: 'column',
+    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginBottom: 16,
+    marginBottom: 0,
+  },
+  quantityButton: {
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    fontSize: 20,
+
   },
   quantity: {
     fontSize: 20,

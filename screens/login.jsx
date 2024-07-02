@@ -69,7 +69,7 @@ export const Login = () => {
         </Button>
       </View>
       <View style={styles.section}>
-        <Text>Aun no tienes cuenta?</Text>
+        <Text>¿Aun no tienes cuenta?</Text>
         <Button onPress={goToSignUp}>Registrate</Button>
       </View>
     </View>
