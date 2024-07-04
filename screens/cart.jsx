@@ -46,7 +46,7 @@ export const Cart = () => {
         ListEmptyComponent={<Text>No hay productos en el carrito</Text>}
       />
       <View style={styles.total}>
-        <Text style={styles.totalText}>Total</Text>
+        <Text style={styles.totalText}>Total:</Text>
         <Text style={styles.totalText}>{formatPrice(total)}</Text>
       </View>
       {cartIsEmpty ? null : (
@@ -70,9 +70,11 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'space-between',
     padding: 16,
+    fontSize: 30,
   },
   totalText: {
     fontFamily: 'Rubik-Bold',
+    fontSize:16,
   },
   confirmation: {
     marginTop: 16,
