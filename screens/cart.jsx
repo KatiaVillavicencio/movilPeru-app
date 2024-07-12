@@ -9,7 +9,7 @@ import { Button } from '../components/button';
 
 export const Cart = () => {
   const dispatch = useDispatch();
-  const user = useSelector(state => state.cart.value.user);
+  const user = useSelector(state => state.auth.value.user);
   const items = useSelector(state => state.cart.value.items);
   const total = useSelector(state => state.cart.value.total);
   const [triggerPost, result] = usePostOrderMutation();
@@ -24,15 +24,19 @@ export const Cart = () => {
 
   const confirmOrder = async () => {
     try {
-      await triggerPost({ items, total, user }).unwrap();
+      const order = { items, total, userId: user.localId, date: new Date().toISOString() }; // Asegúrate de incluir userId
+      await triggerPost(order).unwrap();
       setConfirmationMessage('¡Pedido confirmado!');
     } catch (error) {
       setConfirmationMessage('Error al confirmar el pedido. Inténtelo de nuevo.');
     }
   };
+  
+  
+
 
   useEffect(() => {
-    setConfirmationMessage(''); // Limpiar el mensaje de confirmación cuando se actualiza el carrito
+    setConfirmationMessage(''); // Limpia el msj de confirmación cuando se actualiza el carrito
   }, [items]);
 
   return (

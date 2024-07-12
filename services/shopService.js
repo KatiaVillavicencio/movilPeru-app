@@ -19,20 +19,14 @@ export const shopApi = createApi({
         method: 'POST',
         body: order,
       }),
-
     }),
-
     getOrdersByUser: builder.query({
       query: localId => `orders/${localId}.json`,  
-      
-      transformResponse: (response) => {
-          if (!response) return []; 
-          return Object.values(response); 
+      transformResponse: response => {
+        if (!response) return []; 
+        return Object.values(response); 
       }
-      
-  }),
-
-
+    }),
     getProfileImage: builder.query({
       query: localId => `profileImages/${localId}.json`,
     }),
@@ -66,3 +60,4 @@ export const {
   usePostUserLocationMutation,
   useGetOrdersByUserQuery, 
 } = shopApi
+
