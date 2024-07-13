@@ -16,7 +16,7 @@ export const Orders = () => {
   }
   if (error) {
     console.error('Error al cargar órdenes:', error);
-    return <Text>Error al cargar órdenes!</Text>;
+    return <Text>Error al cargar órdenes</Text>;
   }
 
   // Convierte el objeto de órdenes en un array
@@ -49,9 +49,7 @@ const styles = StyleSheet.create({
     flexGrow: 1,
   },
 });
-
-
-
+ 
 
 
 

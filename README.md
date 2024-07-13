@@ -5,8 +5,8 @@ Movil-Perú es una aplicacióndesarrollada utilizando React Native y Expo, con u
 
 ## Características
 
-- Búsqueda de accesorios para iphone
-- visualizacion de categorias
-- Visualización de detalles de cada producto
-- Diseño responsivo para android y ios
+- Búsqueda de accesorios para iphone.
+- visualizacion de categorias.
+- Visualización de detalles de cada producto.
+- Diseño responsivo para android y ios.
 - Navegación entre pantallas tienda, carrito, ordenes y perfil.

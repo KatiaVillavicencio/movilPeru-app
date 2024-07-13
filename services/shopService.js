@@ -21,7 +21,7 @@ export const shopApi = createApi({
       }),
     }),
     getOrdersByUser: builder.query({
-      query: localId => `orders/${localId}.json`,  
+      query: localId => `orders.json?orderBy="userId"&equalTo="${localId}"`,  //revisar url
       transformResponse: response => {
         if (!response) return []; 
         return Object.values(response); 
