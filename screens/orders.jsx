@@ -30,7 +30,7 @@ export const Orders = () => {
         data={ordersArray}
         keyExtractor={(item, index) => index.toString()}
         renderItem={({ item }) => (
-          <OrderItem createdAt={item.createdAt} totalPrice={item.totalPrice} />
+          <OrderItem createdAt={item.date} totalPrice={item.total} />
         )}
         ListEmptyComponent={<Text>No hay órdenes</Text>}
       />
