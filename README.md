@@ -14,22 +14,22 @@ Movil-Perú es una aplicacióndesarrollada utilizando React Native y Expo, con u
 ## Capturas de pantalla
 
 ### Login
-![Login](/assets/capturas-app/screeshoot-login.PNG)
+![Login](./assets/capturas/login.PNG)
 
 ### Categories
-![Categories](/assets/capturas-app/screeshoot-categories.PNG)
+![Categories](./assets/capturas/categories.PNG)
 
 ### Products
-![Products](/assets/capturas-app/screeshoot-products.PNG)
+![Products](./assets/capturas/products.PNG)
 
 ### Product Detail
-![Product Detail](/assets/capturas-app/screeshoot-productDetail.PNG)
+![Product Detail](./assets/capturas/productDetail.PNG)
 
 ### Cart
-![Cart](/assets/capturas-app/screeshoot-cart.PNG)
+![Cart](./assets/capturas/cart.PNG)
 
 ### Orders
-![Orders](/assets/capturas-app/screeshoot-orders.PNG)
+![Orders](./assets/capturas/orders.PNG)
 
 ### Profile
-![Profile](/assets/capturas-app/screeshoot-profile.PNG)
+![Profile](./assets/capturas/profile.PNG)
