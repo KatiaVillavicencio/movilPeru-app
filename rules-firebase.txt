@@ -1,40 +1,3 @@
-//opcion 1//
-
-{
-  "rules": {
-    ".read": true,
-    ".write": true,
-    "products": {
-      ".indexOn": ["category", "id"]
-    },
-    "orders": {
-      ".indexOn": ["userId"]
-    }
-  }
-}
-
-//opcion 2//
-
-{
-  "rules": {
-    ".read": "now < 1721106000000",  // 2024-07-16
-    ".write": "now < 1721106000000",  // 2024-07-16
-    "orders": {
-      ".indexOn": ["userId"],
-      "$localId": {
-        ".read": "auth != null && auth.uid == $localId",
-        ".write": "auth != null && auth.uid == $localId"
-      }
-    },
-    "products": {
-      ".indexOn": ["category", "id"]
-    }
-  }
-}
-
-
-//opcion 3 
-
 {
   "rules": {
     ".read": true,
@@ -51,4 +14,3 @@
     }
   }
 }
-

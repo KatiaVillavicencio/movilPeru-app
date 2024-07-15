@@ -27,6 +27,7 @@ export const shopApi = createApi({
         return Object.values(response); 
       }
     }),
+    
     getProfileImage: builder.query({
       query: localId => `profileImages/${localId}.json`,
     }),
